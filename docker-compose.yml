@@ -1,0 +1,35 @@
+version: '3'
+services:
+  frontend:
+    build: 
+      context: ./client
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+    depends_on:
+      - backend
+    networks:
+      - js-finalproject
+  backend:
+    build: ./server
+    depends_on:
+      - mongo
+    networks:
+      - js-finalproject
+  mongo:
+    image: mongo:4
+    container_name: 'js-mongodb'
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
+    command: --smallfiles --logpath=/dev/null
+    networks:
+      - js-finalproject
+networks:
+  js-finalproject:
+    driver: bridge
+

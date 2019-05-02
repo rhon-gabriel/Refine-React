@@ -30,3 +30,7 @@ Open 3 terminal window.
 - Cd server
 - npm run start
 
+
+![alt text](https://i.imgur.com/5Z3AalA.jpg)
+
+![alt text](https://i.imgur.com/UZWQWOJ.png)
